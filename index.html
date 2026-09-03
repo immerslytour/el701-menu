@@ -126,27 +126,11 @@ body{color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:15px;l
 }
 .items{display:flex;flex-direction:column}
 
-/* ── DISH CAROUSEL ── */
-.carousel{padding:1.4rem 0 1.1rem;overflow:hidden;background:var(--s1);border-bottom:1px solid var(--border)}
-.carousel-head{display:flex;align-items:baseline;gap:.6rem;padding:0 1.25rem;margin-bottom:.85rem}
-.carousel-head h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--gold)}
-.carousel-head span{font-size:.65rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase}
-.track{display:flex;gap:.85rem;width:max-content;padding:0 1.25rem;animation:dishslide 55s linear infinite}
-.carousel:hover .track{animation-play-state:paused}
-@keyframes dishslide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .425rem))}}
-.dish{width:156px;flex-shrink:0}
-.dish-img{position:relative;width:156px;height:156px;border-radius:12px;overflow:hidden;
-  border:1px solid var(--border);background:var(--bg)}
-.dish-img img{width:100%;height:100%;object-fit:cover;display:block}
-.dish-price{position:absolute;right:.4rem;bottom:.4rem;
-  background:rgba(6,8,8,.85);color:var(--gold2);
-  font-family:'Playfair Display',serif;font-weight:700;font-size:.8rem;
-  padding:.1rem .42rem;border-radius:6px;letter-spacing:.02em}
-.dish-name{font-size:.74rem;color:var(--text);font-weight:400;
-  margin-top:.5rem;line-height:1.3}
-@media (prefers-reduced-motion:reduce){
-  .track{animation:none;overflow-x:auto;width:auto;scroll-snap-type:x mandatory}
-}
+/* ── ITEM THUMB ── */
+.item{gap:.9rem}
+.item-thumb{width:66px;height:66px;flex-shrink:0;border-radius:9px;object-fit:cover;
+  border:1px solid var(--border);background:var(--s1);align-self:flex-start}
+@media(min-width:640px){.item-thumb{width:84px;height:84px}}
 
 /* ── ITEM ROW ── */
 .item{
@@ -215,35 +199,6 @@ footer p+p{margin-top:0.4rem}
   </div>
 </header>
 
-<!-- DISH CAROUSEL -->
-<section class="carousel" aria-label="Featured dishes">
-  <div class="carousel-head">
-    <h2 data-en="Guest Favorites" data-es="Los Favoritos">Guest Favorites</h2>
-    <span data-en="Top 10" data-es="Top 10">Top 10</span>
-  </div>
-  <div class="track">
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/campechana.jpg" alt="Campechana" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$32</span></div><figcaption class="dish-name" data-en="Campechana" data-es="Campechana">Campechana</figcaption></figure>
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/ostiones-supremos.jpg" alt="Supreme Oysters" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$30</span></div><figcaption class="dish-name" data-en="Supreme Oysters" data-es="Ostiones Supremos">Supreme Oysters</figcaption></figure>
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/tostada-tropical.jpg" alt="Tropical Tostada" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$18</span></div><figcaption class="dish-name" data-en="Tropical Tostada" data-es="Tostada Tropical">Tropical Tostada</figcaption></figure>
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/camarones-zarandeados.jpg" alt="Zarandeado Shrimp" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$25</span></div><figcaption class="dish-name" data-en="Zarandeado Shrimp" data-es="Camarones Zarandeados">Zarandeado Shrimp</figcaption></figure>
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/molcajete-mex.jpg" alt="Molcajete Mex" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$48</span></div><figcaption class="dish-name" data-en="Molcajete Mex" data-es="Molcajete Mex">Molcajete Mex</figcaption></figure>
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/sushi-tropical.jpg" alt="Sushi Tropical" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$21</span></div><figcaption class="dish-name" data-en="Sushi Tropical" data-es="Sushi Tropical">Sushi Tropical</figcaption></figure>
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/sushi-uruapan.jpg" alt="Sushi Uruapan Mucho Aguacate" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$23</span></div><figcaption class="dish-name" data-en="Sushi Uruapan Mucho Aguacate" data-es="Sushi Uruapan Mucho Aguacate">Sushi Uruapan Mucho Aguacate</figcaption></figure>
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/filete-zarandeado.jpg" alt="Zarandeado Fish Fillet" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$25</span></div><figcaption class="dish-name" data-en="Zarandeado Fish Fillet" data-es="Filete Zarandeado">Zarandeado Fish Fillet</figcaption></figure>
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/camarones-empanizados.jpg" alt="Breaded Shrimp" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$24</span></div><figcaption class="dish-name" data-en="Breaded Shrimp" data-es="Camarones Empanizados">Breaded Shrimp</figcaption></figure>
-    <figure class="dish"><div class="dish-img"><img src="assets/menu/sushi-guamuchilito.jpg" alt="Sushi Guamuchilito" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$20</span></div><figcaption class="dish-name" data-en="Sushi Guamuchilito" data-es="Sushi Guamuchilito">Sushi Guamuchilito</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/campechana.jpg" alt="Campechana" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$32</span></div><figcaption class="dish-name" data-en="Campechana" data-es="Campechana">Campechana</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/ostiones-supremos.jpg" alt="Supreme Oysters" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$30</span></div><figcaption class="dish-name" data-en="Supreme Oysters" data-es="Ostiones Supremos">Supreme Oysters</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/tostada-tropical.jpg" alt="Tropical Tostada" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$18</span></div><figcaption class="dish-name" data-en="Tropical Tostada" data-es="Tostada Tropical">Tropical Tostada</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/camarones-zarandeados.jpg" alt="Zarandeado Shrimp" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$25</span></div><figcaption class="dish-name" data-en="Zarandeado Shrimp" data-es="Camarones Zarandeados">Zarandeado Shrimp</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/molcajete-mex.jpg" alt="Molcajete Mex" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$48</span></div><figcaption class="dish-name" data-en="Molcajete Mex" data-es="Molcajete Mex">Molcajete Mex</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/sushi-tropical.jpg" alt="Sushi Tropical" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$21</span></div><figcaption class="dish-name" data-en="Sushi Tropical" data-es="Sushi Tropical">Sushi Tropical</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/sushi-uruapan.jpg" alt="Sushi Uruapan Mucho Aguacate" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$23</span></div><figcaption class="dish-name" data-en="Sushi Uruapan Mucho Aguacate" data-es="Sushi Uruapan Mucho Aguacate">Sushi Uruapan Mucho Aguacate</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/filete-zarandeado.jpg" alt="Zarandeado Fish Fillet" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$25</span></div><figcaption class="dish-name" data-en="Zarandeado Fish Fillet" data-es="Filete Zarandeado">Zarandeado Fish Fillet</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/camarones-empanizados.jpg" alt="Breaded Shrimp" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$24</span></div><figcaption class="dish-name" data-en="Breaded Shrimp" data-es="Camarones Empanizados">Breaded Shrimp</figcaption></figure>
-    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/menu/sushi-guamuchilito.jpg" alt="Sushi Guamuchilito" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$20</span></div><figcaption class="dish-name" data-en="Sushi Guamuchilito" data-es="Sushi Guamuchilito">Sushi Guamuchilito</figcaption></figure>
-  </div>
-</section>
 
 <!-- TABS -->
 <nav class="tabs">
@@ -297,6 +252,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Butterfly shrimp cured in lime, your choice of aguachile sauce, onion, cucumber, avocado, salt, pepper and lime." data-es="Camarón mariposa curado en limón, aguachile a elegir, cebolla, pepino, aguacate, sal, pimienta y limón.">Butterfly shrimp cured in lime, your choice of aguachile sauce, onion, cucumber, avocado, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$22</span></div>
+  <img class="item-thumb" src="assets/menu/aguachile.jpg" alt="Aguachile" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -306,6 +262,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Whole cooked shrimp, jicama, mango, red onion, oil based sauce, salt, pepper and lime." data-es="Camarón cocido entero, jícama, mango, cebolla morada, salsa al aceite, sal, pimienta y limón.">Whole cooked shrimp, jicama, mango, red onion, oil based sauce, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$25</span></div>
+  <img class="item-thumb" src="assets/menu/botana-peruana.jpg" alt="Botana Peruana" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -333,6 +290,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Whole cooked shrimp, octopus chunks, mango, your choice of sauce, red onion, cucumber, avocado, salt, pepper and lime." data-es="Camarón cocido entero, trozos de pulpo, mango, salsa a elegir, cebolla morada, pepino, aguacate, sal, pimienta y limón.">Whole cooked shrimp, octopus chunks, mango, your choice of sauce, red onion, cucumber, avocado, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$28</span></div>
+  <img class="item-thumb" src="assets/menu/botana-tropical.jpg" alt="Botana Tropical" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -342,6 +300,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Fresh tuna, sesame oil sauce, red onion, cucumber, avocado, salt, pepper and lime." data-es="Atún fresco, salsa de aceite de ajonjolí, cebolla morada, pepino, aguacate, sal, pimienta y limón.">Fresh tuna, sesame oil sauce, red onion, cucumber, avocado, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$25</span></div>
+  <img class="item-thumb" src="assets/menu/botana-atun.jpg" alt="Botana de Atún Fresco" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -360,6 +319,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Whole cooked shrimp, octopus chunks, aguachile, fresh tuna, rock shrimp, house special sauce, red onion, cucumber, salt, pepper and lime." data-es="Camarón cocido, trozos de pulpo, aguachile, atún fresco, camarón roca, salsa especial, cebolla morada, pepino, sal, pimienta y limón.">Whole cooked shrimp, octopus chunks, aguachile, fresh tuna, rock shrimp, house special sauce, red onion, cucumber, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$26</span></div>
+  <img class="item-thumb" src="assets/menu/torre-mariscos.jpg" alt="Torre de Mariscos" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -378,6 +338,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Whole cooked shrimp, your choice of sauce, red onion, cucumber, avocado, salt, pepper and lime." data-es="Camarón cocido entero, salsa a elegir, cebolla morada, pepino, aguacate, sal, pimienta y limón.">Whole cooked shrimp, your choice of sauce, red onion, cucumber, avocado, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$22</span></div>
+  <img class="item-thumb" src="assets/menu/botana-camaron.jpg" alt="Botana de Camarón" width="360" height="360" loading="lazy" decoding="async">
 </div></div>
 </section><section class="sec" id="c-tostadas">
   <div class="sec-head">
@@ -393,6 +354,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Shrimp, cucumber, tomato, onion, cilantro, avocado, house special sauce, salt, pepper and lime." data-es="Camarón, pepino, tomate, cebolla, cilantro, aguacate, salsa especial de la casa, sal, pimienta y limón.">Shrimp, cucumber, tomato, onion, cilantro, avocado, house special sauce, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$18</span></div>
+  <img class="item-thumb" src="assets/menu/tostada-camaron.jpg" alt="Tostada de Camarón" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -402,6 +364,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Chopped cooked shrimp, octopus, cucumber, tomato, onion, cilantro, avocado, house special sauce, salt, pepper and lime." data-es="Camarón cocido picado, pulpo, pepino, tomate, cebolla, cilantro, aguacate, salsa especial, sal, pimienta y limón.">Chopped cooked shrimp, octopus, cucumber, tomato, onion, cilantro, avocado, house special sauce, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$20</span></div>
+  <img class="item-thumb" src="assets/menu/tostada-mitotera.jpg" alt="Tostada Mitotera" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -411,6 +374,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Chopped cooked shrimp, cucumber and mango seasoned with house special sauce, salt, pepper and lime." data-es="Camarón cocido picado, pepino y mango sazonados con salsa especial de la casa, sal, pimienta y limón.">Chopped cooked shrimp, cucumber and mango seasoned with house special sauce, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$18</span></div>
+  <img class="item-thumb" src="assets/menu/tostada-tropical.jpg" alt="Tostada Tropical" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -453,6 +417,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Whole cooked shrimp, octopus pieces, aguachile, pen shell scallop, cucumber, tomato, onion, cilantro, avocado, seasoned shrimp broth with house black sauce, salt, pepper and lime." data-es="Camarón cocido, trozos de pulpo, aguachile, callo de hacha, pepino, tomate, cebolla, cilantro, aguacate, caldo de camarón con salsa negra de la casa, sal, pimienta y limón.">Whole cooked shrimp, octopus pieces, aguachile, pen shell scallop, cucumber, tomato, onion, cilantro, avocado, seasoned shrimp broth with house black sauce, salt, pepper and lime.</p>
   </div>
   <div class="item-price"><span class="price">$32</span></div>
+  <img class="item-thumb" src="assets/menu/campechana.jpg" alt="Campechana" width="360" height="360" loading="lazy" decoding="async">
 </div></div>
 </section><section class="sec" id="c-seafood">
   <div class="sec-head">
@@ -486,6 +451,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Served with salad, rice, beans, corn tortillas and Basa fish fillet." data-es="Servido con ensalada, arroz, frijoles, tortillas de maíz y filete de basa.">Served with salad, rice, beans, corn tortillas and Basa fish fillet.</p>
   </div>
   <div class="item-price"><span class="price">$25</span></div>
+  <img class="item-thumb" src="assets/menu/filete-zarandeado.jpg" alt="Filete Zarandeado" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -495,6 +461,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Served with salad, rice, beans and tortillas." data-es="Servida con ensalada, arroz, frijoles y tortillas.">Served with salad, rice, beans and tortillas.</p>
   </div>
   <div class="item-price"><span class="price">$24</span></div>
+  <img class="item-thumb" src="assets/menu/mojarra.jpg" alt="Mojarra Entera" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -504,6 +471,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Served with salad, rice, beans and tortillas." data-es="Servidos con ensalada, arroz, frijoles y tortillas.">Served with salad, rice, beans and tortillas.</p>
   </div>
   <div class="item-price"><span class="price">$23</span></div>
+  <img class="item-thumb" src="assets/menu/camarones-endiablados.jpg" alt="Camarones Endiablados" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -531,6 +499,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Served with salad, rice, beans and corn tortillas." data-es="Servidos con ensalada, arroz, frijoles y tortillas de maíz.">Served with salad, rice, beans and corn tortillas.</p>
   </div>
   <div class="item-price"><span class="price">$23</span></div>
+  <img class="item-thumb" src="assets/menu/camarones-mojo-ajo.jpg" alt="Camarones al Mojo de Ajo" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -540,6 +509,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Served with salad, rice, beans and corn tortilla." data-es="Servidos con ensalada, arroz, frijoles y tortilla de maíz.">Served with salad, rice, beans and corn tortilla.</p>
   </div>
   <div class="item-price"><span class="price">$24</span></div>
+  <img class="item-thumb" src="assets/menu/camarones-empanizados.jpg" alt="Camarones Empanizados" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -549,6 +519,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Served with salad, over a bed of rice." data-es="Servidos con ensalada, sobre cama de arroz.">Served with salad, over a bed of rice.</p>
   </div>
   <div class="item-price"><span class="price">$25</span></div>
+  <img class="item-thumb" src="assets/menu/camarones-zarandeados.jpg" alt="Camarones Zarandeados" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -558,6 +529,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Spicy, with garlic and onion." data-es="Picantes, con ajo y cebolla.">Spicy, with garlic and onion.</p>
   </div>
   <div class="item-price"><span class="price">$28</span></div>
+  <img class="item-thumb" src="assets/menu/camarones-cora.jpg" alt="Camarones Cora" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -585,6 +557,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Stuffed with crab and cheese, wrapped in bacon. Served with salad, rice and beans." data-es="Rellenos de jaiba y queso, envueltos en tocino. Servidos con ensalada, arroz y frijoles.">Stuffed with crab and cheese, wrapped in bacon. Served with salad, rice and beans.</p>
   </div>
   <div class="item-price"><span class="price">$33</span></div>
+  <img class="item-thumb" src="assets/menu/camarones-momia.jpg" alt="Camarones Momia" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -705,6 +678,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Rice, Philadelphia cream cheese, avocado, cucumber, shrimp and beef." data-es="Arroz, queso crema Philadelphia, aguacate, pepino, camarón y res.">Rice, Philadelphia cream cheese, avocado, cucumber, shrimp and beef.</p>
   </div>
   <div class="item-price"><span class="price">$20</span></div>
+  <img class="item-thumb" src="assets/menu/sushi-mar-y-tierra.jpg" alt="Sushi Mar y Tierra" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -714,6 +688,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Rice, Philadelphia cream cheese, avocado, cucumber, battered shrimp, asparagus, battered onion and dressing." data-es="Arroz, queso crema Philadelphia, aguacate, pepino, camarón capeado, espárrago, cebolla capeada y aderezo.">Rice, Philadelphia cream cheese, avocado, cucumber, battered shrimp, asparagus, battered onion and dressing.</p>
   </div>
   <div class="item-price"><span class="price">$20</span></div>
+  <img class="item-thumb" src="assets/menu/sushi-bichi.jpg" alt="Sushi Bichi" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -723,6 +698,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Rice, Philadelphia cream cheese, avocado, cucumber, battered shrimp, mango, battered onion and dressing." data-es="Arroz, queso crema Philadelphia, aguacate, pepino, camarón capeado, mango, cebolla capeada y aderezo.">Rice, Philadelphia cream cheese, avocado, cucumber, battered shrimp, mango, battered onion and dressing.</p>
   </div>
   <div class="item-price"><span class="price">$21</span></div>
+  <img class="item-thumb" src="assets/menu/sushi-tropical.jpg" alt="Sushi Tropical" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -732,6 +708,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Rice, Philadelphia cream cheese, avocado, cucumber, chicken, topped with extra avocado and surimi." data-es="Arroz, queso crema Philadelphia, aguacate, pepino, pollo, cubierto con extra aguacate y surimi.">Rice, Philadelphia cream cheese, avocado, cucumber, chicken, topped with extra avocado and surimi.</p>
   </div>
   <div class="item-price"><span class="price">$23</span></div>
+  <img class="item-thumb" src="assets/menu/sushi-uruapan.jpg" alt="Sushi Uruapan Mucho Aguacate" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -741,6 +718,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Rice, Philadelphia cream cheese, avocado, cucumber, shrimp and crab." data-es="Arroz, queso crema Philadelphia, aguacate, pepino, camarón y jaiba.">Rice, Philadelphia cream cheese, avocado, cucumber, shrimp and crab.</p>
   </div>
   <div class="item-price"><span class="price">$20</span></div>
+  <img class="item-thumb" src="assets/menu/sushi-guamuchilito.jpg" alt="Sushi Guamuchilito" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -750,6 +728,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Tampico paste, avocado, cucumber, topped with rock shrimp." data-es="Pasta tampico, aguacate, pepino, cubierto con camarón roca.">Tampico paste, avocado, cucumber, topped with rock shrimp.</p>
   </div>
   <div class="item-price"><span class="price">$22</span></div>
+  <img class="item-thumb" src="assets/menu/sushi-norteno.jpg" alt="Sushi Norteño" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -759,6 +738,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Philadelphia cream cheese, cucumber, avocado, topped with beef, chicken, bacon, au gratin cheese and jalapeños." data-es="Queso crema Philadelphia, pepino, aguacate, cubierto con res, pollo, tocino, queso gratinado y jalapeños.">Philadelphia cream cheese, cucumber, avocado, topped with beef, chicken, bacon, au gratin cheese and jalapeños.</p>
   </div>
   <div class="item-price"><span class="price">$23</span></div>
+  <img class="item-thumb" src="assets/menu/sushi-carnivoro.jpg" alt="Sushi Carnívoro" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -777,6 +757,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Philadelphia cream cheese, avocado, cucumber, chicken, topped with American and mozzarella cheese." data-es="Queso crema Philadelphia, aguacate, pepino, pollo, cubierto con queso americano y mozzarella.">Philadelphia cream cheese, avocado, cucumber, chicken, topped with American and mozzarella cheese.</p>
   </div>
   <div class="item-price"><span class="price">$21</span></div>
+  <img class="item-thumb" src="assets/menu/sushi-dos-quesos.jpg" alt="Sushi Dos Quesos" width="360" height="360" loading="lazy" decoding="async">
 </div></div>
 </section><section class="sec" id="c-appetizers">
   <div class="sec-head">
@@ -792,6 +773,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Fresh oyster topped with shrimp ceviche cured with cucumber, onion, salt, lime, pepper and house sauce." data-es="Ostión fresco cubierto con ceviche de camarón curado con pepino, cebolla, sal, limón, pimienta y salsa de la casa.">Fresh oyster topped with shrimp ceviche cured with cucumber, onion, salt, lime, pepper and house sauce.</p>
   </div>
   <div class="item-price"><span class="price">$30</span></div>
+  <img class="item-thumb" src="assets/menu/ostiones-supremos.jpg" alt="Ostiones Supremos" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -801,6 +783,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Breaded tilapia fillet, cut into pieces and served with zarandeada green sauces." data-es="Filete de tilapia empanizado, cortado en trozos y acompañado de salsas verdes zarandeadas.">Breaded tilapia fillet, cut into pieces and served with zarandeada green sauces.</p>
   </div>
   <div class="item-price"><span class="price">$14</span></div>
+  <img class="item-thumb" src="assets/menu/chicharron-pescado.jpg" alt="Chicharrón de Pescado" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -828,6 +811,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Corn dough, mozzarella cheese, shrimp stewed with tomato, onion and chili, bathed in chipotle sauce and served with green sauce." data-es="Masa de maíz, queso mozzarella, camarón guisado con tomate, cebolla y chile, bañadas en salsa chipotle y acompañadas de salsa verde.">Corn dough, mozzarella cheese, shrimp stewed with tomato, onion and chili, bathed in chipotle sauce and served with green sauce.</p>
   </div>
   <div class="item-price"><span class="price">$24</span></div>
+  <img class="item-thumb" src="assets/menu/empanadas-camaron.jpg" alt="Empanadas de Camarón" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -837,6 +821,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Mozzarella cheese served with chorizo and flour tortillas or chips." data-es="Queso mozzarella acompañado con chorizo y tortillas de harina o totopos.">Mozzarella cheese served with chorizo and flour tortillas or chips.</p>
   </div>
   <div class="item-price"><span class="price">$25</span></div>
+  <img class="item-thumb" src="assets/menu/queso-fundido.jpg" alt="Queso Fundido" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -870,6 +855,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Rib eye steak, onion, cucumber and aguachile sauce." data-es="Rib eye, cebolla, pepino y salsa de aguachile.">Rib eye steak, onion, cucumber and aguachile sauce.</p>
   </div>
   <div class="item-price"><span class="price">$30</span></div>
+  <img class="item-thumb" src="assets/menu/ribeye-aguachile.jpg" alt="Rib Eye Aguachile" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -879,6 +865,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Rib eye steak, mashed potatoes, asparagus." data-es="Rib eye, puré de papa y espárragos.">Rib eye steak, mashed potatoes, asparagus.</p>
   </div>
   <div class="item-price"><span class="price">$40</span></div>
+  <img class="item-thumb" src="assets/menu/ribeye.jpg" alt="Rib Eye 12 oz" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -921,6 +908,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Shrimp, beef, chicken, onion and bell pepper served with rice, beans and tortillas." data-es="Camarón, res, pollo, cebolla y pimiento acompañados de arroz, frijoles y tortillas.">Shrimp, beef, chicken, onion and bell pepper served with rice, beans and tortillas.</p>
   </div>
   <div class="item-price"><span class="price">$28</span></div>
+  <img class="item-thumb" src="assets/menu/fajitas-mixtas.jpg" alt="Fajitas Mixtas" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -930,6 +918,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Skirt steak, chicken, shrimp, langoustine, chorizo, grilled cheese, cactus, chili and grilled onion served with rice, beans and tortillas." data-es="Arrachera, pollo, camarón, langostino, chorizo, queso asado, nopal, chile y cebolla asada acompañados de arroz, frijoles y tortillas.">Skirt steak, chicken, shrimp, langoustine, chorizo, grilled cheese, cactus, chili and grilled onion served with rice, beans and tortillas.</p>
   </div>
   <div class="item-price"><span class="price">$48</span></div>
+  <img class="item-thumb" src="assets/menu/molcajete-mex.jpg" alt="Molcajete Mex" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -990,6 +979,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Flour tortilla, mozzarella cheese, served with french fries." data-es="Tortilla de harina, queso mozzarella, servida con papas a la francesa.">Flour tortilla, mozzarella cheese, served with french fries.</p>
   </div>
   <div class="item-price"><span class="price">$12</span></div>
+  <img class="item-thumb" src="assets/menu/quesadilla.jpg" alt="Quesadilla" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -1008,6 +998,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Breaded chicken breast chunks served with french fries." data-es="Trozos de pechuga de pollo empanizados, servidos con papas a la francesa.">Breaded chicken breast chunks served with french fries.</p>
   </div>
   <div class="item-price"><span class="price">$12</span></div>
+  <img class="item-thumb" src="assets/menu/nuggets-pollo.jpg" alt="Nuggets de Pollo" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -1017,6 +1008,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Fried chicken wings served with celery and carrots." data-es="Alitas de pollo fritas servidas con apio y zanahoria.">Fried chicken wings served with celery and carrots.</p>
   </div>
   <div class="item-price"><span class="price">$14</span></div>
+  <img class="item-thumb" src="assets/menu/alitas.jpg" alt="Alitas" width="360" height="360" loading="lazy" decoding="async">
 </div><div class="item">
   <div class="item-left">
     <div class="item-name">
@@ -1026,6 +1018,7 @@ footer p+p{margin-top:0.4rem}
     <p class="item-desc" data-en="Rice, seaweed, cream cheese, avocado, with shrimp, beef or chicken." data-es="Arroz, alga, queso crema, aguacate, con camarón, res o pollo.">Rice, seaweed, cream cheese, avocado, with shrimp, beef or chicken.</p>
   </div>
   <div class="item-price"><span class="price">$14</span></div>
+  <img class="item-thumb" src="assets/menu/sushi-kids.jpg" alt="Sushi Kids" width="360" height="360" loading="lazy" decoding="async">
 </div></div>
 </section>
 </div>
