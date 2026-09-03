@@ -126,6 +126,28 @@ body{color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:15px;l
 }
 .items{display:flex;flex-direction:column}
 
+/* ── DISH CAROUSEL ── */
+.carousel{padding:1.4rem 0 1.1rem;overflow:hidden;background:var(--s1);border-bottom:1px solid var(--border)}
+.carousel-head{display:flex;align-items:baseline;gap:.6rem;padding:0 1.25rem;margin-bottom:.85rem}
+.carousel-head h2{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--gold)}
+.carousel-head span{font-size:.65rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase}
+.track{display:flex;gap:.85rem;width:max-content;padding:0 1.25rem;animation:dishslide 55s linear infinite}
+.carousel:hover .track{animation-play-state:paused}
+@keyframes dishslide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .425rem))}}
+.dish{width:156px;flex-shrink:0}
+.dish-img{position:relative;width:156px;height:156px;border-radius:12px;overflow:hidden;
+  border:1px solid var(--border);background:var(--bg)}
+.dish-img img{width:100%;height:100%;object-fit:cover;display:block}
+.dish-price{position:absolute;right:.4rem;bottom:.4rem;
+  background:rgba(6,8,8,.85);color:var(--gold2);
+  font-family:'Playfair Display',serif;font-weight:700;font-size:.8rem;
+  padding:.1rem .42rem;border-radius:6px;letter-spacing:.02em}
+.dish-name{font-size:.74rem;color:var(--text);font-weight:400;
+  margin-top:.5rem;line-height:1.3}
+@media (prefers-reduced-motion:reduce){
+  .track{animation:none;overflow-x:auto;width:auto;scroll-snap-type:x mandatory}
+}
+
 /* ── ITEM THUMB ── */
 .item{gap:.9rem}
 .item-thumb{width:66px;height:66px;flex-shrink:0;border-radius:9px;object-fit:cover;
@@ -198,6 +220,36 @@ footer p+p{margin-top:0.4rem}
     <p class="hero-sub">Mariscos · Sushi · Bar</p>
   </div>
 </header>
+
+<!-- DISH CAROUSEL -->
+<section class="carousel" aria-label="Featured dishes">
+  <div class="carousel-head">
+    <h2 data-en="Guest Favorites" data-es="Los Favoritos">Guest Favorites</h2>
+    <span data-en="Top 10" data-es="Top 10">Top 10</span>
+  </div>
+  <div class="track">
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/campechana.jpg" alt="Campechana" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$32</span></div><figcaption class="dish-name" data-en="Campechana" data-es="Campechana">Campechana</figcaption></figure>
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/ostiones-supremos.jpg" alt="Supreme Oysters" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$30</span></div><figcaption class="dish-name" data-en="Supreme Oysters" data-es="Ostiones Supremos">Supreme Oysters</figcaption></figure>
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/tostada-tropical.jpg" alt="Tropical Tostada" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$18</span></div><figcaption class="dish-name" data-en="Tropical Tostada" data-es="Tostada Tropical">Tropical Tostada</figcaption></figure>
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/camarones-zarandeados.jpg" alt="Zarandeado Shrimp" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$25</span></div><figcaption class="dish-name" data-en="Zarandeado Shrimp" data-es="Camarones Zarandeados">Zarandeado Shrimp</figcaption></figure>
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/molcajete-mex.jpg" alt="Molcajete Mex" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$48</span></div><figcaption class="dish-name" data-en="Molcajete Mex" data-es="Molcajete Mex">Molcajete Mex</figcaption></figure>
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/sushi-tropical.jpg" alt="Sushi Tropical" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$21</span></div><figcaption class="dish-name" data-en="Sushi Tropical" data-es="Sushi Tropical">Sushi Tropical</figcaption></figure>
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/sushi-uruapan.jpg" alt="Sushi Uruapan Mucho Aguacate" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$23</span></div><figcaption class="dish-name" data-en="Sushi Uruapan Mucho Aguacate" data-es="Sushi Uruapan Mucho Aguacate">Sushi Uruapan Mucho Aguacate</figcaption></figure>
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/filete-zarandeado.jpg" alt="Zarandeado Fish Fillet" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$25</span></div><figcaption class="dish-name" data-en="Zarandeado Fish Fillet" data-es="Filete Zarandeado">Zarandeado Fish Fillet</figcaption></figure>
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/camarones-empanizados.jpg" alt="Breaded Shrimp" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$24</span></div><figcaption class="dish-name" data-en="Breaded Shrimp" data-es="Camarones Empanizados">Breaded Shrimp</figcaption></figure>
+    <figure class="dish"><div class="dish-img"><img src="assets/carousel/sushi-guamuchilito.jpg" alt="Sushi Guamuchilito" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$20</span></div><figcaption class="dish-name" data-en="Sushi Guamuchilito" data-es="Sushi Guamuchilito">Sushi Guamuchilito</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/campechana.jpg" alt="Campechana" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$32</span></div><figcaption class="dish-name" data-en="Campechana" data-es="Campechana">Campechana</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/ostiones-supremos.jpg" alt="Supreme Oysters" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$30</span></div><figcaption class="dish-name" data-en="Supreme Oysters" data-es="Ostiones Supremos">Supreme Oysters</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/tostada-tropical.jpg" alt="Tropical Tostada" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$18</span></div><figcaption class="dish-name" data-en="Tropical Tostada" data-es="Tostada Tropical">Tropical Tostada</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/camarones-zarandeados.jpg" alt="Zarandeado Shrimp" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$25</span></div><figcaption class="dish-name" data-en="Zarandeado Shrimp" data-es="Camarones Zarandeados">Zarandeado Shrimp</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/molcajete-mex.jpg" alt="Molcajete Mex" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$48</span></div><figcaption class="dish-name" data-en="Molcajete Mex" data-es="Molcajete Mex">Molcajete Mex</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/sushi-tropical.jpg" alt="Sushi Tropical" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$21</span></div><figcaption class="dish-name" data-en="Sushi Tropical" data-es="Sushi Tropical">Sushi Tropical</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/sushi-uruapan.jpg" alt="Sushi Uruapan Mucho Aguacate" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$23</span></div><figcaption class="dish-name" data-en="Sushi Uruapan Mucho Aguacate" data-es="Sushi Uruapan Mucho Aguacate">Sushi Uruapan Mucho Aguacate</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/filete-zarandeado.jpg" alt="Zarandeado Fish Fillet" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$25</span></div><figcaption class="dish-name" data-en="Zarandeado Fish Fillet" data-es="Filete Zarandeado">Zarandeado Fish Fillet</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/camarones-empanizados.jpg" alt="Breaded Shrimp" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$24</span></div><figcaption class="dish-name" data-en="Breaded Shrimp" data-es="Camarones Empanizados">Breaded Shrimp</figcaption></figure>
+    <figure class="dish" aria-hidden="true"><div class="dish-img"><img src="assets/carousel/sushi-guamuchilito.jpg" alt="Sushi Guamuchilito" width="600" height="600" loading="lazy" decoding="async"><span class="dish-price">$20</span></div><figcaption class="dish-name" data-en="Sushi Guamuchilito" data-es="Sushi Guamuchilito">Sushi Guamuchilito</figcaption></figure>
+  </div>
+</section>
 
 
 <!-- TABS -->
